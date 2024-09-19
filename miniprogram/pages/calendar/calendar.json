@@ -1,0 +1,6 @@
+{
+	"navigationBarTitleText": "Date Picker",
+	"usingComponents": {
+	  "custom-date-picker": "../../components/custom-date-picker/custom-date-picker"
+	}
+  }

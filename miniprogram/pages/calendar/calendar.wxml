@@ -1,0 +1,4 @@
+<view class="container1">
+  <custom-date-picker bind:dateConfirm="onDateConfirm" />
+  <text>选择的日期是: {{ selectedDate }}</text>
+</view>

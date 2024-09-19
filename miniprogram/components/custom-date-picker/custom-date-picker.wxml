@@ -1,0 +1,47 @@
+<!-- page.wxml -->
+<view>
+  <!-- 日期选择按钮 -->
+  <button bindtap="toggleDatePicker">选择日期</button>
+
+  <!-- 日期选择组件，基于 showDatePicker 值控制显示与隐藏 -->
+  <view wx:if="{{ showDatePicker }}">
+    <view class="date-picker">
+      <view class="date-picker__header">
+        <text>选择日期</text>
+      </view>
+
+      <view class="date-picker__body">
+        <!-- 年选择 -->
+        <scroll-view scroll-y="true"  type="list" class="date-picker__column" bindscroll="onYearScroll">
+          <view wx:for="{{ years }}" wx:key="{{ item }}" data-index="{{ index }}"
+            bindtap="onYearTap"
+            class="date-picker__item {{ index === selectedYearIndex ? 'active' : '' }}">
+            {{ item }}
+          </view>
+        </scroll-view>
+
+        <!-- 月选择 -->
+        <scroll-view scroll-y="true" type="list" class="date-picker__column" bindscroll="onMonthScroll">
+          <view wx:for="{{ months }}" wx:key="{{ item }}" data-index="{{ index }}"
+            bindtap="onMonthTap"
+            class="date-picker__item {{ index === selectedMonthIndex ? 'active' : '' }}">
+            {{ item }}
+          </view>
+        </scroll-view>
+
+        <!-- 日选择 -->
+        <scroll-view scroll-y="true" type="list" class="date-picker__column" bindscroll="onDayScroll">
+          <view wx:for="{{ days }}" wx:key="{{ item }}" data-index="{{ index }}"
+            bindtap="onDayTap"
+            class="date-picker__item {{ index === selectedDayIndex ? 'active' : '' }}">
+            {{ item }}
+          </view>
+        </scroll-view>
+
+      </view>
+      <view class="date-picker__footer">
+        <button bindtap="confirmDate">确认</button>
+      </view>
+    </view>
+  </view>
+</view>
